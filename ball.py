@@ -4,7 +4,7 @@ from turtle import Turtle
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
-        self.goto(0, -100)
+        self.goto(0, -  100)
         self.shape("circle")
         self.color("white")
         self.speed("slow")
@@ -28,17 +28,16 @@ class Ball(Turtle):
         """Bounce the ball on the y-axis"""
         self.ymove *= -1
 
-    def paddle_bounce(self, y):
+    def paddle_bounce(self, paddle, length):
         """Paddle bounce the ball on the y-axis"""
-        if self.distance(y) < 60 and self.ycor() < -220:
+        if self.distance(paddle) < length and self.ycor() < -220:
             self.ymove *= -1
-            self.movespeed *= 0.9
 
     def hit_tile(self, tiles):
         """Check if the ball hits a tile"""
         for row in tiles.tiles:     # Iterates over the 2D list of tiles
             for tile in row:
-                if self.distance(tile) < 30:
+                if self.distance(tile) < 35:
                     return True, tile
         return False, None
 
