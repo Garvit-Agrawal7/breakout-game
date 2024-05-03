@@ -15,12 +15,18 @@ class Paddle(Turtle):
     def right(self, **kwargs):
         """Paddle goes right"""
         x = self.xcor() + 20
-        self.goto(x, self.ycor())
+        if self.xcor() > 380:   # Restricts paddle from going outside the right wall
+            self.goto(x-40, self.ycor())
+        else:
+            self.goto(x, self.ycor())
 
     def left(self, **kwargs):
         """Paddle goes left"""
         x = self.xcor() - 20
-        self.goto(x, self.ycor())
+        if self.xcor() < -380:  # Restricts paddle from going outside the left wall
+            self.goto(x+40, self.ycor())
+        else:
+            self.goto(x, self.ycor())
 
     def reduce_width(self, reduction):
         self.length -= reduction

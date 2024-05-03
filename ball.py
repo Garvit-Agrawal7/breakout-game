@@ -1,22 +1,22 @@
 from turtle import Turtle
+from random import choice
 
 
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
-        self.goto(0, -  100)
+        self.goto(0, -100)
         self.shape("circle")
         self.color("white")
-        self.speed("slow")
         self.penup()
-        self.setheading(45)
         self.xmove = 10
         self.ymove = 10
         self.movespeed = 0.1
+        self.direction = choice([1, -1])
 
     def move(self):
         """Moves the ball forward"""
-        x = self.xcor() + self.xmove
+        x = self.xcor() + self.xmove * self.direction
         y = self.ycor() + self.ymove
         self.goto(x=x, y=y)
 
@@ -43,5 +43,5 @@ class Ball(Turtle):
 
     def tile_bounce(self):
         self.ymove *= -1
-        self.movespeed *= 0.95
+        self.movespeed *= 0.9
 

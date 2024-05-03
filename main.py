@@ -46,7 +46,7 @@ while True:
                 tile_hit.goto(1000, 1000)  # Hide the tile
                 break
         score += 10
-        paddle.reduce_width(0.5)
+        paddle.reduce_width(0.5)    # Reduce paddle width with increase in score
         paddle.clear()
         t1.clear()
 
